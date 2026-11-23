@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --color-win-gray: #c0c0c0;
+  --color-win-light: #dfdfdf;
+  --color-win-shadow: #808080;
+  --color-win-dark: #404040;
+  --color-navy: #000080;
+  --color-navy-light: #1084d0;
+  --color-butter: #ffffcc;
+  --color-tooltip: #ffffe1;
+  --color-lilac: #ccccff;
+  --color-lavender: #e8e8f8;
+  --color-alert: #cc0000;
+  --color-online: #00cc00;
+  --color-lcd: #00ff00;
+  --color-sunny: #ffff99;
+  --color-teal: #008080;
+  --color-link: #0000ee;
+
+  --font-verdana: Verdana, Arial, sans-serif;
+  --font-times: "Times New Roman", Times, serif;
+  --font-courier: "Courier New", Courier, monospace;
+  --font-tahoma: Tahoma, Verdana, sans-serif;
+  --font-arial: Arial, Helvetica, sans-serif;
+  --font-georgia: Georgia, "Times New Roman", serif;
+
+  --animate-bob: ygm-bob 1.2s steps(2) infinite;
+  --animate-blink: ygm-blink 1.4s steps(1) infinite;
+  --animate-blink-fast: ygm-blink 1s steps(1) infinite;
+  --animate-marquee: ygm-marq 14s linear infinite;
+  --animate-static: ygm-static 0.35s steps(4) infinite;
+
+  @keyframes ygm-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  @keyframes ygm-blink {
+    50% { opacity: 0; }
+  }
+  @keyframes ygm-static {
+    0% { background-position: 0 0; }
+    25% { background-position: -37px 21px; }
+    50% { background-position: 53px -13px; }
+    75% { background-position: -19px -41px; }
+    100% { background-position: 0 0; }
+  }
+  @keyframes ygm-marq {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+}
+
+/* Windows 9x bevels */
+@utility bevel-out {
+  border: 2px solid;
+  border-color: #fff #404040 #404040 #fff;
+}
+@utility bevel-in {
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+}
+@utility bevel-in-deep {
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  box-shadow: inset 1px 1px #404040;
+}
+@utility bevel-thin-out {
+  border: 1px solid;
+  border-color: #fff #808080 #808080 #fff;
+}
+@utility bevel-thin-in {
+  border: 1px solid;
+  border-color: #808080 #fff #fff #808080;
+}
+@utility bevel-window {
+  border: 2px solid;
+  border-color: #dfdfdf #000 #000 #dfdfdf;
+  box-shadow: inset 1px 1px #fff, inset -1px -1px #808080;
+}
+@utility bevel-btn {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #fff #404040 #404040 #fff;
+  box-shadow: inset -1px -1px #808080, inset 1px 1px #dfdfdf;
+  cursor: pointer;
+  &:active:not(:disabled) {
+    border-color: #404040 #fff #fff #404040;
+    box-shadow: inset 1px 1px #808080;
+  }
+  &:disabled {
+    color: #808080;
+    cursor: default;
+  }
+}
+@utility groove-rule {
+  border: 0;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #fff;
+}
+
+/* Phones: 16px inputs stop iOS zooming on focus; buttons get a 44px tap target. */
+@media (max-width: 767px) {
+  input:not([type="checkbox"]):not([type="radio"]),
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@utility tap {
+  @media (max-width: 767px) {
+    min-height: 44px;
+  }
+}
+
+body {
+  margin: 0;
+  background: #c0c0c0;
+  font-family: Verdana, Arial, sans-serif;
+}
+a { color: #0000ee; }
+a:visited { color: #551a8b; }
+a:hover { color: #ff0000; }
