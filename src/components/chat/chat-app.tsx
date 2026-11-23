@@ -457,7 +457,7 @@ function ThreadHeader({ state }: { state: ChatState }) {
   const hydrated = useHydrated();
   const [buzzing, startBuzz] = useTransition();
   const status =
-    c.online || c.kind === "room"
+    c.online || c.kind !== "dm"
       ? c.status
       : `Offline${hydrated && c.lastSeenAt ? ` · last seen ${formatShort(c.lastSeenAt)}` : ""}`;
 
